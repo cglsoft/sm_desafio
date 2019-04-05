@@ -107,20 +107,24 @@ No navegador de sua preferência, acessar o endereço do Jupyter Notebook: [Jupy
 ```
 
 
-### Respostas - JUPYTER NOTEBOOK
+## Respostas 
+
+### JUPYTER NOTEBOOK
 
 Para visualizar as respostas acessar o arquivo : [jupyter_notebook](https://github.com/cglsoft/sm_desafio/blob/master/SM%20Desafio.ipynb) 
  
  
-### Respostas - INGESTÃO PYSPARK -> SPARK SUBMIT YARN
+### Projeto ETL - SPARK-SUBMIT  
 
 Para execução do projeto utilizar a pasta : [spark-submit](https://github.com/cglsoft/sm_desafio/tree/master/etl_pyspark)
- 
 
+O projeto disponibilizado faz toda a funcionalidade do JUPYTER NOTEBOOK conforme demonstrado acima, agora com o o recurso de execução em cluster.
 
-# Projeto ETL - SPARK-SUBMIT  
+#####Sugestão para execução ( compactar a pasta do projeto com o nome etl_nasa.zip  e deixar o main.py fora !
 
-O projeto disponibilizado faz toda a funcionalidade do JUPYTER NOTEBOOK conforme demonstrado acima, agora com o plus de execução em cluster.
+```sh
+ spark-submit --name etl_nasa --master yarn --deploy-mode cluster --num-executors 2 --driver-memory 512m --executor-memory 521m --executor-cores 2 --files /usr/hdp/current/spark2-client/conf/hive-site.xml,/usr/hdp/current/hbase-client/conf/hbase-site.xml,/usr/hdp/current/tez-client/conf/tez-site.xml --py-files etl_nasa.zip main.py  
+```
 
 Na pasta [] é possível explorar todo o código ETL para carga das informações:
 
